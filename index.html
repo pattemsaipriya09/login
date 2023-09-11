@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: lightblue;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label, input {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form id="login-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById("login-form");
+
+            form.addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                const username = form.username.value;
+                const password = form.password.value;
+
+                // Simulated password hashing (you should use a proper hashing library in a real app)
+                const hashedPassword = sha256(password);
+
+                // Simulated server-side check (replace with actual server-side code)
+                if (username === "example" && hashedPassword === "hashedPasswordHere") {
+                    alert("Login successful!");
+                } else {
+                    alert("Login failed. Please check your credentials.");
+                }
+            });
+
+            // Simulated password hashing function (replace with a real library)
+            function sha256(input) {
+                // Your password hashing logic here
+                return input; // Simulated hash for demonstration purposes
+            }
+        });
+    </script>
+</body>
+</html>
